@@ -78,6 +78,7 @@ SRC =	ft_memset.c \
 		ft_split_to_lst.c \
 		ft_lst_count.c \
 		ft_putnbrendl.c
+
 OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
