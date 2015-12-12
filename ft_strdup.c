@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:06:21 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/12 12:39:15 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 13:05:49 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char				*ft_strdup(const char *s1)
 	size_t			str_len;
 
 	i = 0;
+	if (s1 == NULL)
+		return (NULL);
 	str_len = ft_strlen(s1);
 	rlt = (char*)malloc(str_len + 1);
 	if (!rlt)
