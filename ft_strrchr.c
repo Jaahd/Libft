@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:07:17 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/11 12:18:35 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:44:31 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 char		*ft_strrchr(const char *s, int c)
 {
-	char	*save_ptr;
+	char	*tmp;
 
 	if (!s)
 		return (NULL);
-	save_ptr = (char*)s;
-	while (*save_ptr != '\0')
-		save_ptr++;
-	while ((save_ptr != s) && (*save_ptr != c))
-		save_ptr--;
-	if ((save_ptr == s) && (*s != c))
+	tmp = (char*)s;
+	while (*tmp != '\0')
+		tmp++;
+	while ((tmp != s) && (*tmp != c))
+		tmp--;
+	if ((tmp == s) && (*s != c))
 		return (NULL);
-	return (save_ptr);
+	return (tmp);
 }

@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:06:21 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/08 21:06:22 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:39:15 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 char				*ft_strdup(const char *s1)
 {
 	size_t			i;
-	char			*duplicate;
+	char			*rlt;
 	size_t			str_len;
 
 	i = 0;
 	str_len = ft_strlen(s1);
-	duplicate = (char*)malloc(str_len + 1);
-	if (!duplicate)
+	rlt = (char*)malloc(str_len + 1);
+	if (!rlt)
 		return (NULL);
 	while (i < str_len)
 	{
-		duplicate[i] = s1[i];
+		rlt[i] = s1[i];
 		i++;
 	}
-	duplicate[i] = '\0';
-	return (duplicate);
+	rlt[i] = '\0';
+	return (rlt);
 }

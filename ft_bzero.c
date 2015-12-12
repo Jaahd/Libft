@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:03:23 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/11 11:01:26 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:09:34 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 void			ft_bzero(void *s, size_t n)
 {
 	size_t		i;
-	char		*save_ptr;
+	char		*tmp;
 
 	i = 0;
-	save_ptr = s;
-	while (save_ptr && i < n)
+	tmp = s;
+	while (tmp && i < n)
 	{
-		*save_ptr = '\0';
+		*tmp = '\0';
 		i++;
-		save_ptr++;
+		tmp++;
 	}
 }

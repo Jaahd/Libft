@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:04:44 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/11 11:40:36 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:21:06 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 void				*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t			i;
-	const char		*save_ptr;
+	const char		*tmp;
 
 	i = 0;
 	if (s != NULL)
 	{
-		save_ptr = s;
+		tmp = s;
 		while (i < n)
 		{
-			if (ft_memcmp(save_ptr, &c, 1) == 0)
-				return ((void*)save_ptr);
+			if (ft_memcmp(tmp, &c, 1) == 0)
+				return ((void*)tmp);
 			i++;
-			save_ptr++;
+			tmp++;
 		}
 	}
 	return (NULL);

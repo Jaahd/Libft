@@ -6,29 +6,28 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:04:34 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/11 11:44:11 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:17:07 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-void			*ft_memccpy(void *s1, const void *s2, int c, size_t n)
+void			*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char		*save_ptr;
-	char		*save_ptr_2;
+	char		*tmp_dst;
+	char		*tmp_src;
 
-	if (s1 && s2)
+	if (dst && src)
 	{
-		save_ptr = (char*)s1;
-		save_ptr_2 = (char*)s2;
+		tmp_dst = (char*)dst;
+		tmp_src = (char*)src;
 		while (n > 0)
 		{
-			*save_ptr = *save_ptr_2;
-			save_ptr++;
-			if (*save_ptr_2 == c)
-				return (save_ptr);
-			save_ptr_2++;
+			*tmp_dst = *tmp_src;
+			tmp_dst++;
+			if (*tmp_src == c)
+				return (tmp_dst);
+			tmp_src++;
 			n--;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 21:41:10 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/11 12:01:15 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:38:26 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char		*ft_strcpy(char *s1, const char *s2)
 {
-	char	*save_ptr;
+	char	*tmp;
 	if (!s1 || !s2)
 		return (NULL);
-	save_ptr = s1;
+	tmp = s1;
 	while (*s2 != '\0')
 	{
 		*s1 = *s2;
@@ -25,6 +25,6 @@ char		*ft_strcpy(char *s1, const char *s2)
 		s1++;
 	}
 	*s1 = '\0';
-	s1 = save_ptr;
+	s1 = tmp;
 	return (s1);
 }

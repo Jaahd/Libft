@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 21:06:40 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/08 21:06:42 by avacher          ###   ########.fr       */
+/*   Updated: 2015/12/12 12:39:43 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 size_t			ft_strlen(const char *s)
 {
-	size_t		count;
+	size_t		cpt;
 
-	count = 0;
+	cpt = 0;
 	if (s)
 		while (*s != '\0')
 		{
-			count++;
+			cpt++;
 			s++;
 		}
-	return (count);
+	return (cpt);
 }
