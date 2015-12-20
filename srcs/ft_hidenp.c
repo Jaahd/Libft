@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   hidenp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
+/*   By: exam <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/08 21:07:03 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/12 12:42:32 by avacher          ###   ########.fr       */
+/*   Created: 2015/12/01 12:05:47 by exam              #+#    #+#             */
+/*   Updated: 2015/12/04 12:34:57 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-char			*ft_strncpy(char *dst, const char *src, size_t n)
+int		ft_hidenp(char *hiden, char *str)
 {
-	size_t		i;
+	int		cpt;
+	int		cpt_str;
 
-	i = 0;
-	if (!dst || !src)
-		return (NULL);
-	while (src[i] && i < n)
+	cpt = 0;
+	cpt_str = 0;
+	while (str[cpt_str] != '\0')
 	{
-		dst[i] = src[i];
-		i++;
+		if (str[cpt_str] == hiden[cpt])
+			cpt++;
+		if (hiden[cpt] == '\0')
+			return (1);
+		cpt_str++;
 	}
-	while (i < n)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+	return (0);
 }
