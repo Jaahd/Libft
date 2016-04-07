@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   duo_del.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:12:14 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/28 12:34:33 by avacher          ###   ########.fr       */
+/*   Created: 2016/01/10 10:47:52 by avacher           #+#    #+#             */
+/*   Updated: 2016/01/10 12:01:07 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int			duo_del(t_duo **lst)
 {
-	size_t	cpt;
-	char	*tmp;
+	t_duo		*tmp;
 
-	cpt = 0;
 	tmp = NULL;
-	if (s != NULL && start < ft_strlen(s))
+	while (lst && *lst && (*lst)->next)
 	{
-		tmp = (char *)malloc(sizeof(char) * (len + 1));
-		if (tmp != NULL)
-		{
-			while (s[start + cpt] != '\0' && cpt < len)
-			{
-				tmp[cpt] = s[start + cpt];
-				cpt++;
-			}
-			tmp[cpt] = '\0';
-		}
+		tmp = (*lst)->next;
+		free((*lst)->name);
+		free((*lst)->value);
+		free(*lst);
+		*lst = tmp;
 	}
-	return (tmp);
+	free((*lst)->name);
+	free((*lst)->value);
+	free(*lst);
+	return (0);
 }

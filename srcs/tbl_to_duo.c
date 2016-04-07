@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   tbl_to_duo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:12:14 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/28 12:34:33 by avacher          ###   ########.fr       */
+/*   Created: 2016/01/10 10:47:52 by avacher           #+#    #+#             */
+/*   Updated: 2016/01/10 12:01:07 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_duo				*tbl_to_duo(char **tbl, char c)
 {
-	size_t	cpt;
-	char	*tmp;
+	int				i;
+	char			*tmp_name;
+	char			*tmp_value;
+	t_duo			*lst;
 
-	cpt = 0;
-	tmp = NULL;
-	if (s != NULL && start < ft_strlen(s))
+	lst = NULL;
+	i = 0;
+	while (tbl && tbl[i])
 	{
-		tmp = (char *)malloc(sizeof(char) * (len + 1));
-		if (tmp != NULL)
-		{
-			while (s[start + cpt] != '\0' && cpt < len)
-			{
-				tmp[cpt] = s[start + cpt];
-				cpt++;
-			}
-			tmp[cpt] = '\0';
-		}
+		tmp_name = srch_begining(tbl[i], c);
+		tmp_value = srch_value(tbl[i], c);
+		duo_pushback(&lst, tmp_name, tmp_value);
+		free(tmp_name);
+		i++;
 	}
-	return (tmp);
+	return (lst);
 }

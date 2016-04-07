@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:12:14 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/28 12:34:33 by avacher          ###   ########.fr       */
+/*   Created: 2016/01/10 10:47:52 by avacher           #+#    #+#             */
+/*   Updated: 2016/01/10 12:01:07 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void		ft_swap(char **s1, char **s2)
 {
-	size_t	cpt;
-	char	*tmp;
+	char		*tmp;
 
-	cpt = 0;
-	tmp = NULL;
-	if (s != NULL && start < ft_strlen(s))
+	if (*s1 != NULL && *s2 != NULL)
 	{
-		tmp = (char *)malloc(sizeof(char) * (len + 1));
-		if (tmp != NULL)
-		{
-			while (s[start + cpt] != '\0' && cpt < len)
-			{
-				tmp[cpt] = s[start + cpt];
-				cpt++;
-			}
-			tmp[cpt] = '\0';
-		}
+		tmp = *s1;
+		*s1 = *s2;
+		*s2 = tmp;
 	}
-	return (tmp);
 }

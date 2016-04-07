@@ -6,7 +6,7 @@
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 17:49:05 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/19 13:29:50 by avacher          ###   ########.fr       */
+/*   Updated: 2016/01/13 19:32:15 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 # include <stdlib.h>
 # include <string.h>
 
+typedef struct		s_duo
+{
+	char			*name;
+	char			*value;
+	struct s_duo	*next;
+}					t_duo;
+
 typedef struct		s_list
 {
-	void			*content;
-	size_t			content_size;
+	char			*content;
 	struct s_list	*next;
 }					t_list;
 
@@ -45,13 +51,13 @@ char				*ft_strnstr(const char *s1, const char *s2, size_t n);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
-int					ft_isalpha(int s);
-int					ft_isdigit(int s);
-int					ft_isalnum(int s);
-int					ft_isascii(int s);
-int					ft_isprint(int s);
-int					ft_toupper(int s);
-int					ft_tolower(int s);
+int					ft_isalpha(int i);
+int					ft_isdigit(int i);
+int					ft_isalnum(int i);
+int					ft_isascii(int i);
+int					ft_isprint(int i);
+int					ft_toupper(int i);
+int					ft_tolower(int i);
 
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
@@ -78,19 +84,34 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putchar_fd(char c, int fd);
 
-t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew(char *content);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-void				ft_lstpushback(t_list **alst, t_list *new);
-int					ft_strnlen(char *str, char c);
-char				*ft_itoa_base(int n, int base);
-char				*ft_properjoin(char const *s1, char const *s2);
-t_list				*ft_split_to_lst(const char *s, char c);
-int					ft_lst_count(t_list *lst);
 void				ft_putnbrendl(int n);
+int					ft_strnlen(char *str, char c);
+void				ft_lstpushback(t_list **alst, char *new);
+char				*ft_itoa_base(int n, int base);
+t_list				*ft_split_to_lst(const char *s, char c);
+t_duo				*tbl_to_duo(char **tbl, char c);
+char				*srch_begining(const char *str, int c);
+char				*srch_value(const char *str, int c);
+int					duo_pushback(t_duo **lst, char *name, char *value);
+int					duo_del(t_duo **lst);
+int					free_duo(t_duo **lst);
+int					free_lst(t_list **lst);
+int					free_tab(char ***tab);
+char				**lst_to_tbl(t_list *lst);
+int					ft_lst_count(t_list *lst);
+int					tbl_len(char **tbl);
+char				*ft_properjoin(char *s1, char *s2);
+int					ft_atoi_base(char *str, int base);
+int					ft_hidenp(char *hiden, char *str);
+void				ft_swap(char **s1, char **s2);
+void				int_swap(int *i, int *j);
+int					intcmp(int a, int b);
 
 #endif

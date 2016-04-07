@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strsub_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,14 +12,16 @@
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strsub_end(char const *s, char c)
 {
+	int		i;
 	size_t	cpt;
 	char	*tmp;
 
+	i = 0;
 	cpt = 0;
 	tmp = NULL;
-	if (s != NULL && start < ft_strlen(s))
+	if (s != NULL && ft_strchr())
 	{
 		tmp = (char *)malloc(sizeof(char) * (len + 1));
 		if (tmp != NULL)

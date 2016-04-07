@@ -6,7 +6,7 @@
 #    By: avacher <avacher@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/25 17:44:48 by avacher           #+#    #+#              #
-#    Updated: 2015/12/20 10:50:14 by avacher          ###   ########.fr        #
+#    Updated: 2016/01/20 14:45:40 by avacher          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -85,11 +85,23 @@ SRC = ft_memset.c \
 	  ft_lstpushback.c \
 	  ft_itoa_base.c \
 	  ft_split_to_lst.c \
+	  tbl_to_duo.c \
+	  srch_value.c \
+	  srch_begining.c \
+	  duo_pushbk.c \
+	  duo_del.c \
+	  free_duo.c \
+	  free_tab.c \
+	  free_lst.c \
+	  lst_to_tbl.c \
 	  ft_lst_count.c \
-	  ft_free_tbl.c \
+	  tbl_len.c \
 	  ft_properjoin.c \
 	  ft_atoi_base.c \
 	  ft_hidenp.c \
+	  ft_swap.c \
+	  int_swap.c \
+	  intcmp.c
 
 OBJ = $(patsubst %.c, $(OPATH)/%.o, $(SRC))
 
@@ -105,26 +117,26 @@ HPATH =		$(ROOT)/includes
 all: $(OPATH) $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Libft: Creating OBJ files"
-	@echo "Libft: Building $@"
+	@echo "Libft - Creating OBJ files"
+	@echo "Libft - Building $@"
 	@$(AR) rc $@ $(OBJ)
 	@$(RANLIB) $@
-	@echo "\033[34mLibft: All is done!\033[0m"
+	@echo "\033[34mLibft - All is done!\033[0m"
 	
 $(OPATH)/%.o: $(CPATH)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(OPATH):
-	@echo "Libft: Creating OBJ directory"
+	@echo "Libft - Creating OBJ directory"
 	@$(MKDIR) $@
 
 clean:
-	@echo "Libft: Deleting OBJS"
+	@echo "Libft - Deleting OBJS"
 	@$(RM) -Rf $(OPATH)
 
 fclean: clean
-	@echo "Libft: Deleting $(NAME)"
+	@echo "Libft - Deleting $(NAME)"
 	@$(RM) -f $(NAME)
-	@echo "\033[34mLibft: All clear!\033[0m"
+	@echo "\033[34mLibft - All clear!\033[0m"
 
 re: fclean all

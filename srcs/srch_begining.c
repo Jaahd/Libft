@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   srch_begining.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:12:14 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/28 12:34:33 by avacher          ###   ########.fr       */
+/*   Created: 2016/01/10 10:47:52 by avacher           #+#    #+#             */
+/*   Updated: 2016/01/10 12:01:07 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char			*srch_begining(const char *str, int c)
 {
-	size_t	cpt;
-	char	*tmp;
+	int				i;
+	char			*ret;
 
-	cpt = 0;
-	tmp = NULL;
-	if (s != NULL && start < ft_strlen(s))
-	{
-		tmp = (char *)malloc(sizeof(char) * (len + 1));
-		if (tmp != NULL)
-		{
-			while (s[start + cpt] != '\0' && cpt < len)
-			{
-				tmp[cpt] = s[start + cpt];
-				cpt++;
-			}
-			tmp[cpt] = '\0';
-		}
-	}
-	return (tmp);
+	i = 0;
+	while (str[i] != c)
+		i++;
+	ret = ft_strsub(str, 0, i);
+	return (ret);
 }

@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tbl_s.c                                    :+:      :+:    :+:   */
+/*   lst_to_tbl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/09 11:27:38 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/10 21:43:22 by avacher          ###   ########.fr       */
+/*   Created: 2015/11/26 12:59:59 by avacher           #+#    #+#             */
+/*   Updated: 2015/11/29 16:27:42 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-void	ft_free_tbl_s(char **tbl)
+char		**lst_to_tbl(t_list *lst)
 {
-	int		i;
+	int			i;
+	char		**tbl;
 
 	i = 0;
-	while (tbl != NULL)
+	if ((tbl = (char **)malloc(sizeof(char *) * (ft_lst_count(lst) + 1)))
+			== NULL)
+		return (NULL);
+	while (lst != NULL)
 	{
-		free(tbl[i]);
+		if ((tbl[i] = ft_strdup(lst->content)) == NULL)
+			return (NULL);
+		lst = lst->next;
 		i++;
 	}
-	free(tbl);
+	tbl[i] = NULL;
+	return (tbl);
 }

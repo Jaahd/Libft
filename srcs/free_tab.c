@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avacher <avacher@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 10:12:14 by avacher           #+#    #+#             */
-/*   Updated: 2015/12/28 12:34:33 by avacher          ###   ########.fr       */
+/*   Created: 2015/12/08 21:03:13 by avacher           #+#    #+#             */
+/*   Updated: 2015/12/12 12:49:47 by avacher          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int			free_tab(char ***tab)
 {
-	size_t	cpt;
-	char	*tmp;
+	int			i;
+	int			len;
 
-	cpt = 0;
-	tmp = NULL;
-	if (s != NULL && start < ft_strlen(s))
+	i = 0;
+	len = tbl_len(*tab);
+	while (i < len)
 	{
-		tmp = (char *)malloc(sizeof(char) * (len + 1));
-		if (tmp != NULL)
-		{
-			while (s[start + cpt] != '\0' && cpt < len)
-			{
-				tmp[cpt] = s[start + cpt];
-				cpt++;
-			}
-			tmp[cpt] = '\0';
-		}
+		free((*tab)[i]);
+		i++;
 	}
-	return (tmp);
+	free(*tab);
+	return (0);
 }
